@@ -6,7 +6,7 @@ import {
   BriefcaseBusiness,
   Bus,
   FileText,
-  HardHat,
+  Hammer,
   HeartHandshake,
   ShieldCheck,
   Sparkles,
@@ -20,7 +20,7 @@ const topics = [
     icon: FileText,
     title: "Employment rights",
     description:
-      "Understand contracts, working hours, leave and your rights at work.",
+      "Understand employment contracts, working hours, leave and your rights at work.",
     color: "bg-coral/15",
   },
   {
@@ -38,24 +38,24 @@ const topics = [
     color: "bg-teal/20",
   },
   {
-    icon: HardHat,
+    icon: BookOpen,
     title: "Workplace safety",
     description:
-      "Know more about safe working conditions and your wellbeing.",
+      "Understand workplace risks, safe working conditions and your wellbeing.",
     color: "bg-navy/10",
   },
   {
     icon: HeartHandshake,
     title: "Fair treatment",
     description:
-      "Learn about dignity, respect and fairness in the workplace.",
+      "Learn about dignity, respect, equality and fairness at work.",
     color: "bg-coral/15",
   },
   {
     icon: Users,
     title: "Different kinds of work",
     description:
-      "Explore the realities of formal, informal and platform work.",
+      "Explore formal employment, informal work and platform-based jobs.",
     color: "bg-teal/20",
   },
 ];
@@ -64,12 +64,13 @@ const resources = [
   {
     icon: FileText,
     title: "Understanding employment contracts",
-    description: "What should you look out for before accepting a job?",
+    description:
+      "What should you look out for before accepting a job?",
     color: "bg-coral/15",
   },
   {
     icon: ShieldCheck,
-    title: "Insurance and pension",
+    title: "Insurance and pensions",
     description:
       "A simple introduction to protecting yourself financially.",
     color: "bg-teal/20",
@@ -101,22 +102,29 @@ const workerTypes = [
   {
     icon: Store,
     label: "Market workers",
-    detail: "Traders and small businesses",
+    detail: "Traders and street vendors",
     color: "bg-coral",
     position: "rotate-[3deg]",
+  },
+  {
+    icon: Hammer,
+    label: "Artisans",
+    detail: "Technicians and skilled workers",
+    color: "bg-[#A9C8E8]",
+    position: "rotate-[-3deg]",
   },
   {
     icon: BriefcaseBusiness,
     label: "Office workers",
     detail: "Employees and professionals",
-    color: "bg-[#A9C8E8]",
-    position: "rotate-[-3deg]",
+    color: "bg-sunshine",
+    position: "rotate-[2deg]",
   },
 ];
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-cream text-ink">
+    <div className="overflow-hidden bg-cream text-ink">
       {/* HERO */}
       <section className="relative">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-20 sm:px-10 lg:grid-cols-2 lg:gap-16 lg:py-28">
@@ -134,9 +142,9 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-muted">
-              Whether you work in an office, drive a bus, deliver packages or
-              run a small business, understanding your rights and protections
-              matters.
+              Whether you work in an office, drive a bus, deliver
+              packages, sell in a market or practise a trade,
+              understanding your rights and protections matters.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
@@ -231,22 +239,42 @@ export default function Home() {
             </p>
 
             <h2 className="text-3xl font-extrabold leading-tight text-navy sm:text-4xl">
-              Understanding work shouldn&apos;t be complicated.
+              Understanding work shouldn't be complicated.
             </h2>
           </div>
 
           <div>
             <p className="text-lg leading-8 text-muted">
-              Work comes in different forms, and workers face different
-              challenges. But everyone deserves access to clear and useful
-              information about their rights, responsibilities and protection.
+              Work comes in different forms, and workers face
+              different challenges. But everyone deserves access
+              to clear and useful information about their rights,
+              responsibilities and protection.
             </p>
 
             <p className="mt-5 text-lg leading-8 text-muted">
-              SiseGidi makes important work-related information easier to
-              understand, so you can make more informed decisions.
+              SiseGidi makes important work-related information
+              easier to understand, so you can make more informed
+              decisions about your working life.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* WORKER GROUPS */}
+      <section className="bg-sunshine/15 px-6 py-16 sm:px-10">
+        <div className="mx-auto max-w-6xl text-center">
+          <p className="mb-4 text-sm font-bold uppercase tracking-widest text-coral">
+            Work takes many forms
+          </p>
+
+          <h2 className="text-3xl font-extrabold text-navy sm:text-4xl">
+            This space is for you.
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted">
+            From formal employment to self-employment and platform
+            work, every worker deserves access to useful information.
+          </p>
         </div>
       </section>
 
@@ -263,8 +291,8 @@ export default function Home() {
             </h2>
 
             <p className="mt-4 text-lg leading-8 text-muted">
-              Explore everyday work-related topics explained in simple
-              language.
+              Explore everyday work-related topics explained in
+              simple language.
             </p>
           </div>
 
@@ -273,8 +301,7 @@ export default function Home() {
               const Icon = topic.icon;
 
               return (
-                <a
-                  href="#resources"
+                <div
                   key={topic.title}
                   className="group animate-fadeUp rounded-3xl border border-navy/5 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-cardHover"
                   style={{
@@ -295,14 +322,10 @@ export default function Home() {
                     {topic.description}
                   </p>
 
-                  <span className="mt-6 inline-flex items-center gap-2 font-bold text-coral">
-                    Explore topic
-                    <ArrowRight
-                      size={17}
-                      className="transition group-hover:translate-x-1"
-                    />
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-coral">
+                    Learning materials coming soon
                   </span>
-                </a>
+                </div>
               );
             })}
           </div>
@@ -331,21 +354,23 @@ export default function Home() {
 
           <div>
             <p className="text-lg leading-8 text-navy/80">
-              Social protection helps people manage risks and uncertainty
-              throughout their working lives. Yet many workers still have
-              limited access to insurance, pensions and other forms of support.
+              Social protection helps people manage risks and
+              uncertainty throughout their working lives. This
+              includes protection through pensions, insurance
+              and other forms of support.
             </p>
 
             <p className="mt-4 text-lg leading-8 text-navy/80">
-              SiseGidi helps make these topics easier to understand, including
-              options available to workers outside traditional employment.
+              SiseGidi aims to make these options easier to
+              understand, including those relevant to workers
+              outside traditional employment.
             </p>
 
             <a
               href="#resources"
               className="mt-7 inline-flex items-center gap-2 rounded-full bg-navy px-7 py-4 font-bold text-white transition hover:-translate-y-1 hover:bg-navy-light"
             >
-              Explore protection resources
+              Explore resources
               <ArrowRight size={18} />
             </a>
           </div>
@@ -353,27 +378,24 @@ export default function Home() {
       </section>
 
       {/* RESOURCES */}
-      <section id="resources" className="bg-white px-6 py-20 sm:px-10 lg:py-24">
+      <section
+        id="resources"
+        className="bg-white px-6 py-20 sm:px-10 lg:py-24"
+      >
         <div className="mx-auto max-w-6xl">
-          <div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-            <div>
-              <p className="mb-4 text-sm font-bold uppercase tracking-widest text-coral">
-                Useful information
-              </p>
+          <div className="mb-12">
+            <p className="mb-4 text-sm font-bold uppercase tracking-widest text-coral">
+              Useful information
+            </p>
 
-              <h2 className="text-3xl font-extrabold text-navy sm:text-4xl">
-                Start with the basics.
-              </h2>
+            <h2 className="text-3xl font-extrabold text-navy sm:text-4xl">
+              Start with the basics.
+            </h2>
 
-              <p className="mt-4 max-w-xl leading-7 text-muted">
-                Simple guides to help you understand important issues at work.
-              </p>
-            </div>
-
-            <span className="inline-flex items-center gap-2 text-sm font-bold text-navy">
-              More resources coming soon
-              <Sparkles size={17} className="text-coral" />
-            </span>
+            <p className="mt-4 max-w-xl leading-7 text-muted">
+              Practical guides to help you understand important
+              issues in your working life.
+            </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -403,7 +425,7 @@ export default function Home() {
                   </p>
 
                   <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-coral">
-                    Coming soon
+                    Guide coming soon
                     <ArrowRight size={17} />
                   </span>
                 </div>
@@ -429,8 +451,9 @@ export default function Home() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/75">
-            Understanding your rights is a good place to start. Explore, learn
-            and share useful information with other workers.
+            Understanding your rights is a good place to start.
+            Explore, learn and share useful information with
+            other workers.
           </p>
 
           <a
@@ -442,6 +465,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
