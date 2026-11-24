@@ -1,16 +1,15 @@
+
 import Link from "next/link";
 import { Github } from "lucide-react";
 
 const columns = [
   {
-    title: "Initiative",
+    title: "Explore",
     links: [
-      { href: "/about", label: "About" },
-      { href: "/assessment", label: "Framework" },
-      { href: "/directory", label: "Company Directory" },
-      { href: "/convention-193", label: "Convention 193" },
+      { href: "/about", label: "About SiseGidi" },
+      { href: "/insights", label: "Learn" },
+      { href: "/convention-193", label: "Platform Work" },
       { href: "/research", label: "Research" },
-      { href: "/insights", label: "Insights" },
     ],
   },
   {
@@ -24,7 +23,10 @@ const columns = [
     title: "Connect",
     links: [
       { href: "/contact", label: "Contact" },
-      { href: "https://github.com", label: "GitHub" },
+      {
+        href: "https://github.com/irhawo08-sys/SiseGidi",
+        label: "GitHub",
+      },
     ],
   },
 ];
@@ -45,28 +47,36 @@ function RosetteMark() {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-forest/10 bg-forest text-beige">
+    <footer className="border-t border-navy/10 bg-navy text-cream">
       <div className="mx-auto max-w-6xl px-6 py-16 sm:px-8">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2 font-display text-lg font-semibold text-beige">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gold text-forest">
+            <div className="flex items-center gap-2 font-display text-lg font-semibold">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sunshine text-navy">
                 <RosetteMark />
               </span>
               Ṣiṣẹ́ gidi
             </div>
-            <p className="mt-3 max-w-xs text-sm text-beige/70">
-              An Open-Source Initiative by TheBranchesHR
+
+            <p className="mt-3 max-w-xs text-sm text-cream/70">
+              An open-access learning initiative by TheBranchesHR.
+              Helping people understand work, rights and protections.
             </p>
           </div>
 
           {columns.map((col) => (
             <div key={col.title}>
-              <p className="eyebrow text-gold-light">{col.title}</p>
+              <p className="text-sm font-semibold text-sunshine">
+                {col.title}
+              </p>
+
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-beige/80 hover:text-gold-light">
+                    <Link
+                      href={link.href}
+                      className="text-sm text-cream/80 transition-colors hover:text-coral"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -76,13 +86,23 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-beige/15 pt-6 text-xs text-beige/60 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Ṣiṣẹ́ gidi — An Open-Source Initiative by TheBranchesHR</p>
-          <a href="https://github.com" className="inline-flex items-center gap-2 hover:text-gold-light">
-            <Github size={14} /> View on GitHub
+        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-cream/15 pt-6 text-xs text-cream/60 sm:flex-row sm:items-center">
+          <p>
+            © {new Date().getFullYear()} Ṣiṣẹ́ gidi — An initiative by TheBranchesHR.
+          </p>
+
+          <a
+            href="https://github.com/irhawo08-sys/SiseGidi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-sunshine"
+          >
+            <Github size={14} />
+            View on GitHub
           </a>
         </div>
       </div>
     </footer>
   );
 }
+
