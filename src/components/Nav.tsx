@@ -7,10 +7,10 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "/insights", label: "Learn" },
-  { href: "/worker-rights", label: "Know Your Rights" },
-  { href: "/social-protection", label: "Social Protection" },
-  { href: "/resources", label: "Resources" },
+  { href: "/convention-193", label: "Platform Work" },
+  { href: "/research", label: "Research" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function RosetteMark() {
@@ -55,11 +55,9 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Link href="/resources" className="btn-primary">
-            Explore Resources
-          </Link>
-        </div>
+        <Link href="/insights" className="btn-primary hidden lg:inline-flex">
+          Start Learning
+        </Link>
 
         <button
           className="rounded-lg p-2 text-navy hover:bg-teal/20 lg:hidden"
@@ -85,11 +83,11 @@ export default function Nav() {
           ))}
 
           <Link
-            href="/resources"
+            href="/insights"
             className="btn-primary mt-3 w-full"
             onClick={() => setOpen(false)}
           >
-            Explore Resources
+            Start Learning
           </Link>
         </nav>
       )}
