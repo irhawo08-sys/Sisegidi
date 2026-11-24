@@ -4,67 +4,10 @@ import {
   BookOpen,
   PlayCircle,
   Lightbulb,
-  BriefcaseBusiness,
-  Coins,
-  ShieldCheck,
-  HeartHandshake,
-  Scale,
-  Cpu,
-  Megaphone,
   ArrowRight,
 } from "lucide-react";
-
-const topics = [
-  {
-    number: "01",
-    title: "Employment Relationships",
-    description:
-      "Understand employment contracts, working arrangements, employee rights and responsibilities.",
-    icon: BriefcaseBusiness,
-  },
-  {
-    number: "02",
-    title: "Pay and Income",
-    description:
-      "Learn about wages, fair pay, payment agreements, deductions and income security.",
-    icon: Coins,
-  },
-  {
-    number: "03",
-    title: "Working Conditions and Safety",
-    description:
-      "Explore safe workplaces, working hours, rest periods and protection from workplace risks.",
-    icon: ShieldCheck,
-  },
-  {
-    number: "04",
-    title: "Social Protection",
-    description:
-      "Understand pensions, health insurance, injury protection and other social security benefits.",
-    icon: HeartHandshake,
-  },
-  {
-    number: "05",
-    title: "Equality and Inclusion",
-    description:
-      "Learn about discrimination, equal opportunities, fair treatment and inclusion at work.",
-    icon: Scale,
-  },
-  {
-    number: "06",
-    title: "Technology and Work",
-    description:
-      "Explore how digital platforms, automation and workplace technology affect workers.",
-    icon: Cpu,
-  },
-  {
-    number: "07",
-    title: "Worker Voice and Representation",
-    description:
-      "Understand trade unions, collective bargaining, worker participation and social dialogue.",
-    icon: Megaphone,
-  },
-];
+import PillarCard from "@/components/PillarCard";
+import { pillars } from "@/lib/pillars";
 
 const learningMethods = [
   {
@@ -123,8 +66,8 @@ export default function LearnPage() {
           </h2>
 
           <p className="mt-4 max-w-2xl leading-relaxed text-cream/75">
-            SiseGidi is designed to make important work-related information
-            understandable through different learning experiences.
+            SiseGidi makes important work-related information understandable
+            through different learning experiences.
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -165,35 +108,9 @@ export default function LearnPage() {
         </p>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {topics.map((topic) => {
-            const Icon = topic.icon;
-
-            return (
-              <article
-                key={topic.number}
-                className="card group transition duration-300 hover:-translate-y-1 hover:shadow-cardHover"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-sm text-coral">
-                    {topic.number}
-                  </span>
-
-                  <Icon
-                    size={25}
-                    className="text-navy transition group-hover:text-coral"
-                  />
-                </div>
-
-                <h3 className="mt-5 text-lg font-semibold text-navy">
-                  {topic.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-relaxed text-ink/65">
-                  {topic.description}
-                </p>
-              </article>
-            );
-          })}
+          {pillars.map((pillar) => (
+            <PillarCard key={pillar.id} pillar={pillar} />
+          ))}
         </div>
       </section>
 
