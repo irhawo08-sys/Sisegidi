@@ -20,13 +20,13 @@ export default function SectionHeading({
         align === "center" ? "mx-auto text-center" : ""
       }`}
     >
-      <p className={dark ? "eyebrow text-gold-light" : "eyebrow"}>
+      <p className={dark ? "eyebrow text-sunshine" : "eyebrow"}>
         {eyebrow}
       </p>
 
       <h2
         className={`mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.8rem] ${
-          dark ? "text-beige" : "text-forest"
+          dark ? "text-cream" : "text-navy"
         }`}
       >
         {title}
@@ -35,7 +35,7 @@ export default function SectionHeading({
       {description && (
         <p
           className={`mt-5 max-w-xl text-base leading-8 sm:text-lg ${
-            dark ? "text-beige/75" : "text-ink/65"
+            dark ? "text-cream/75" : "text-ink/65"
           } ${align === "center" ? "mx-auto" : ""}`}
         >
           {description}
@@ -44,3 +44,4 @@ export default function SectionHeading({
     </div>
   );
 }
+
