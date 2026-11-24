@@ -1,34 +1,42 @@
+
 export type Pillar = {
   id: string;
   number: string;
   title: string;
   description: string;
-  icon: "briefcase" | "coins" | "shield" | "heart-handshake" | "scale" | "cpu" | "megaphone";
+  icon:
+    | "briefcase"
+    | "coins"
+    | "shield"
+    | "heart-handshake"
+    | "scale"
+    | "cpu"
+    | "megaphone";
 };
 
 export const fallbackPillars: Pillar[] = [
   {
     id: "employment-relationship",
     number: "01",
-    title: "Employment Relationship",
+    title: "Understanding Work Relationships",
     description:
-      "How clearly the platform defines its relationship with workers, including contract terms, classification, and mutual obligations.",
+      "Learn about employment contracts, self-employment, independent work, and the responsibilities of workers and employers.",
     icon: "briefcase",
   },
   {
     id: "fair-income",
     number: "02",
-    title: "Fair Income",
+    title: "Fair Pay and Income",
     description:
-      "Whether pay is transparent, predictable, and sufficient relative to hours worked, expenses, and local cost of living.",
+      "Understand wages, earnings, payment agreements, deductions, and the importance of fair and timely payment.",
     icon: "coins",
   },
   {
     id: "working-conditions-safety",
     number: "03",
-    title: "Working Conditions & Safety",
+    title: "Working Conditions and Safety",
     description:
-      "Protections against excessive hours, physical and digital risk, and access to safety equipment or guidance.",
+      "Explore workplace safety, working hours, rest periods, occupational risks, and ways to protect yourself at work.",
     icon: "shield",
   },
   {
@@ -36,34 +44,33 @@ export const fallbackPillars: Pillar[] = [
     number: "04",
     title: "Social Protection",
     description:
-      "Access to insurance, injury cover, sick leave provisions, and pathways to broader social security systems.",
+      "Discover how pensions, health insurance, injury protection, and other social security benefits can support workers.",
     icon: "heart-handshake",
   },
   {
     id: "equality-inclusion",
     number: "05",
-    title: "Equality & Inclusion",
+    title: "Equality and Fair Treatment",
     description:
-      "Fair treatment across gender, disability, migration status, and other characteristics in access, pay, and opportunity.",
+      "Understand discrimination, equal opportunities, inclusion, and the right to fair treatment at work.",
     icon: "scale",
   },
   {
     id: "algorithmic-management",
     number: "06",
-    title: "Algorithmic Management",
+    title: "Technology and the Changing World of Work",
     description:
-      "Transparency in how algorithms assign work, set pay, evaluate performance, and enable human review of automated decisions.",
+      "Explore how digital platforms, artificial intelligence, and automated decisions are changing how people work.",
     icon: "cpu",
   },
   {
     id: "worker-voice",
     number: "07",
-    title: "Worker Voice & Social Dialogue",
+    title: "Worker Voice and Representation",
     description:
-      "Channels for workers to raise concerns, organise, and participate in decisions that affect their work.",
+      "Learn how workers can raise concerns, organise, join associations or unions, and participate in decisions affecting their work.",
     icon: "megaphone",
   },
 ];
 
-// Alias so pages can simply `import { pillars }`.
 export const pillars = fallbackPillars;
