@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -5,14 +6,11 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
+  { href: "/insights", label: "Learn" },
+  { href: "/worker-rights", label: "Know Your Rights" },
+  { href: "/social-protection", label: "Social Protection" },
+  { href: "/resources", label: "Resources" },
   { href: "/about", label: "About" },
-  { href: "/assessment", label: "Assessment" },
-  { href: "/directory", label: "Directory" },
-  { href: "/worker-voice", label: "Worker Voice" },
-  { href: "/convention-193", label: "Convention 193" },
-  { href: "/research", label: "Research" },
-  { href: "/insights", label: "Insights" },
-  { href: "/contact", label: "Contact" },
 ];
 
 function RosetteMark() {
@@ -33,10 +31,13 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-forest/10 bg-beige/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-navy/10 bg-cream/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
-        <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold text-forest">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-forest text-gold">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-display text-lg font-bold text-navy"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy text-sunshine">
             <RosetteMark />
           </span>
           Ṣiṣẹ́ gidi
@@ -47,7 +48,7 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-ink/80 transition-colors hover:text-forest"
+              className="text-sm font-medium text-ink/80 transition-colors hover:text-coral"
             >
               {link.label}
             </Link>
@@ -55,37 +56,44 @@ export default function Nav() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link href="/assessment" className="btn-primary">
-            Start Assessment
+          <Link href="/resources" className="btn-primary">
+            Explore Resources
           </Link>
         </div>
 
         <button
-          className="lg:hidden"
+          className="rounded-lg p-2 text-navy hover:bg-teal/20 lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
           onClick={() => setOpen(!open)}
         >
-          {open ? <X className="text-forest" /> : <Menu className="text-forest" />}
+          {open ? <X /> : <Menu />}
         </button>
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-forest/10 bg-beige px-6 pb-6 lg:hidden">
+        <nav className="flex flex-col gap-1 border-t border-navy/10 bg-cream px-6 pb-6 lg:hidden">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-2 py-3 text-sm font-medium text-ink/80 hover:bg-forest/5 hover:text-forest"
+              className="rounded-lg px-3 py-3 text-sm font-medium text-ink transition-colors hover:bg-teal/20 hover:text-navy"
               onClick={() => setOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <Link href="/assessment" className="btn-primary mt-3 w-full" onClick={() => setOpen(false)}>
-            Start Assessment
+
+          <Link
+            href="/resources"
+            className="btn-primary mt-3 w-full"
+            onClick={() => setOpen(false)}
+          >
+            Explore Resources
           </Link>
         </nav>
       )}
     </header>
   );
 }
+
