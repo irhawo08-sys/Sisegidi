@@ -8,7 +8,6 @@ const columns = [
     links: [
       { href: "/about", label: "About SiseGidi" },
       { href: "/insights", label: "Learn" },
-      { href: "/convention-193", label: "Platform Work" },
       { href: "/research", label: "Research" },
     ],
   },
@@ -23,10 +22,6 @@ const columns = [
     title: "Connect",
     links: [
       { href: "/contact", label: "Contact" },
-      {
-        href: "https://github.com/irhawo08-sys/SiseGidi",
-        label: "GitHub",
-      },
     ],
   },
 ];
@@ -60,7 +55,7 @@ export default function Footer() {
 
             <p className="mt-3 max-w-xs text-sm text-cream/70">
               An open-access learning initiative by TheBranchesHR.
-              Helping people understand work, rights and protections.
+              Helping workers understand their rights, responsibilities and available protections.
             </p>
           </div>
 
@@ -105,4 +100,3 @@ export default function Footer() {
     </footer>
   );
 }
-
