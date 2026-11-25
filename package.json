@@ -1,8 +1,9 @@
+
 {
-  "name": "veriwork",
+  "name": "sisegidi",
   "version": "0.1.0",
   "private": true,
-  "description": "VeriWork — an open-source initiative by TheBranchesHR promoting decent work in the platform economy.",
+  "description": "SiseGidi — an open-access learning initiative by TheBranchesHR helping workers understand their rights, responsibilities and available protections.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,8 +11,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.4.0",
-    "@supabase/supabase-js": "^2.45.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.417.0",
     "next": "14.2.5",
