@@ -2,12 +2,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const links = [
   { href: "/insights", label: "Learn" },
-  { href: "/convention-193", label: "Platform Work" },
+  { href: "/platform-work", label: "Platform Work" },
   { href: "/research", label: "Research" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -29,6 +29,35 @@ function RosetteMark() {
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [themeReady, setThemeReady] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("sisegidi-theme");
+
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    const useDarkMode =
+      savedTheme === "dark" ||
+      (savedTheme === null && prefersDark);
+
+    document.documentElement.classList.toggle("dark", useDarkMode);
+    setDarkMode(useDarkMode);
+    setThemeReady(true);
+  }, []);
+
+  function toggleTheme() {
+    const nextMode = !darkMode;
+
+    setDarkMode(nextMode);
+    document.documentElement.classList.toggle("dark", nextMode);
+    localStorage.setItem(
+      "sisegidi-theme",
+      nextMode ? "dark" : "light"
+    );
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy/10 bg-cream/95 backdrop-blur">
@@ -55,18 +84,33 @@ export default function Nav() {
           ))}
         </nav>
 
-        <Link href="/insights" className="btn-primary hidden lg:inline-flex">
-          Start Learning
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link href="/insights" className="btn-primary hidden lg:inline-flex">
+            Start Learning
+          </Link>
 
-        <button
-          className="rounded-lg p-2 text-navy hover:bg-teal/20 lg:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X /> : <Menu />}
-        </button>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            disabled={!themeReady}
+            className="rounded-full p-2 text-navy transition-colors hover:bg-teal/20"
+            aria-label={
+              darkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
+            title={darkMode ? "Light mode" : "Dark mode"}
+          >
+            {darkMode ? <Sun size={21} /> : <Moon size={21} />}
+          </button>
+
+          <button
+            className="rounded-lg p-2 text-navy hover:bg-teal/20 lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -94,4 +138,3 @@ export default function Nav() {
     </header>
   );
 }
-
