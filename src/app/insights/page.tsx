@@ -130,7 +130,7 @@ export default function LearnPage() {
             </p>
 
             <Link
-              href="/convention-193"
+              href="/platform-work"
               className="mt-6 inline-flex items-center gap-2 font-semibold text-navy hover:text-coral"
             >
               Explore platform work
